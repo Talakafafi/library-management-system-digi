@@ -1,0 +1,20 @@
+package com.library.management.system.book;
+
+public enum Category {
+    FICTION,
+    NON_FICTION,
+    MYSTERY_THRILLER,
+    SCIENCE_FICTION,
+    FANTASY,
+    ROMANCE,
+    HISTORICAL_FICTION,
+    BIOGRAPHY_AUTOBIOGRAPHY,
+    SELF_HELP,
+    SCIENCE_NATURE,
+    HEALTH_WELLNESS,
+    BUSINESS_ECONOMICS,
+    TRAVEL,
+    CHILDREN_BOOKS,
+    YOUNG_ADULT,
+    Other
+}

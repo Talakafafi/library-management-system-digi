@@ -1,0 +1,67 @@
+package com.library.management.system.exception.handler;
+/**
+ * to get proper error message
+ * the following methods redirect  the errors to an appropriate method that has a
+ * suitable logic to handle the error or  make it more readable
+ *
+ */
+
+
+import com.library.management.system.exception.type.IdNotFoundException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@RestControllerAdvice
+public class ApplicationExceptionHandler {
+    /**
+     * handles the error thrown by the validation annotation
+     * @param ex
+     * @return Map<String,String>  return the error field (witch error cause the error )
+     *                                    with the message specified in the annotation
+     */
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)//that means whenever find this error redirect it to the following method
+    public Map<String,String> handleInvalidArgument(MethodArgumentNotValidException ex){
+        Map<String,String> errorMap=new HashMap<>();
+        ex.getBindingResult().getFieldErrors().forEach(error->{
+            errorMap.put("errorMessage",error.getDefaultMessage()); //
+        });
+        return errorMap;
+    }
+
+    /**
+     * handles the error thrown when the user insert id for an entity does not exist
+     * @param ex
+     * @return  Map<String , String> will return errorMessage with the message
+     *                               you pass when invoke the method
+     */
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(IdNotFoundException.class)
+    public Map<String , String> handleIDNotFoundException(IdNotFoundException ex){
+        Map<String,String> errorMap = new HashMap<>();
+        errorMap.put("errorMessage",ex.getMessage());
+        return errorMap;
+    }
+
+
+    /**
+     * This error thrown when insert invalid value for the status , priority or date
+     * @param ex
+     * @return
+     */
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler( HttpMessageNotReadableException.class)
+    public Map<String , String> handleInvalidArgument( HttpMessageNotReadableException ex){
+        Map<String,String> errorMap = new HashMap<>();
+        errorMap.put("errorMessage","Invalid value");
+        return errorMap;
+    }
+}
