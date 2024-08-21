@@ -32,7 +32,7 @@ This system manages various aspects of a library, including users, books, and lo
 
 1. **Add a New Book**
    - **POST**: [http://localhost:8080/books]
-   - **Description**: Adds a new book to the library. 
+   - **Description**: Adds a new book to the library. You have to insert book details such as title, description, and authorId in the request body.
 
 2. **Get Book by ID**
    - **GET**: [http://localhost:8080/books/{id}]
