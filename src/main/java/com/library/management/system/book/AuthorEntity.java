@@ -4,11 +4,11 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 
-@Entity
-@Table(name="publishers")
 @Getter
+@Entity
+@Table(name = "authors")
 @Builder
-public class Publisher {
+public class AuthorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "publisher_id")
