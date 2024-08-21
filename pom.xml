@@ -118,14 +118,7 @@
 						<version>5.2.0-M1</version>
 					</dependency>
 				</dependencies>
-				<!-- Uncomment and configure as needed -->
-				<!--
-                <configuration>
-                    <excludes>
-                        <exclude>com.driver.test.VehicleTest</exclude>
-                    </excludes>
-                </configuration>
-                -->
+
 			</plugin>
 
 			<!-- Spring Boot Maven Plugin Configuration -->

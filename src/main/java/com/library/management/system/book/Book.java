@@ -18,6 +18,7 @@ public class Book {
     private Publisher publisher;
     private Long ISBN;
     private Date publishingYear;
+    private boolean isAvailable;
 
 
 }

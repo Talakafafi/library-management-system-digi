@@ -1,9 +1,13 @@
 package com.library.management.system.book;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Table(name = "authors")
+@Builder
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

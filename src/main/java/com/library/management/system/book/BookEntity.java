@@ -14,7 +14,7 @@ public class BookEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "book_id")
-    private Long Id;
+    private Long id;
 
     @Column(name ="book_name")
     private String title;
@@ -39,4 +39,7 @@ public class BookEntity {
 
     @Column(name="book_publishing_year")
     private Date publishingYear;
+
+    @Column(name="book_IsAvailable")
+    private boolean isAvailable;
 }
