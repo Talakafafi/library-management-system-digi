@@ -20,6 +20,9 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class ApplicationExceptionHandler {
+
+
+
     /**
      * handles the error thrown by the validation annotation
      * @param ex

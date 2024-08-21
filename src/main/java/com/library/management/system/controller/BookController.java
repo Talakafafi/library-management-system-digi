@@ -30,6 +30,11 @@ public class BookController {
             return new ResponseEntity<>(book, HttpStatus.CREATED);
         }
 
+    @GetMapping()
+    public List<Book> getAllBooks() throws IdNotFoundException {
+        return  bookService.getAllBooks();
+
+    }
         @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable Long id) throws IdNotFoundException {
             Book book = bookService.findBookById(id);

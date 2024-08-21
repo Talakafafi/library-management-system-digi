@@ -87,6 +87,11 @@ return BookMapper.toModel(book);
 
         return BookMapper.toModel(bookEntity);
     }
+
+    public List<Book> getAllBooks() {
+        return bookRepository.findAll().stream().map(BookMapper::toModel).toList();
+    }
+
 }
 
 
