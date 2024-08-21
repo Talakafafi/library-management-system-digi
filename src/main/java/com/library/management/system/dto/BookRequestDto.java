@@ -1,8 +1,8 @@
 package com.library.management.system.dto;
 
-import com.library.management.system.book.Author;
+import com.library.management.system.book.AuthorEntity;
 import com.library.management.system.book.Category;
-import com.library.management.system.book.Publisher;
+import com.library.management.system.book.PublisherEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

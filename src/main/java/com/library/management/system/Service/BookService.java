@@ -22,8 +22,8 @@ public class BookService {
 
 
     public Book addBook(BookRequestDto bookRequestDto) throws IdNotFoundException {
-        Author author;
-        Publisher publisher;
+        AuthorEntity author;
+        PublisherEntity publisher;
 
         if (bookRequestDto.getAuthorId()!=null ){
             author = findAuthor(bookRequestDto.getAuthorId());} else {
@@ -48,12 +48,12 @@ public class BookService {
 return BookMapper.toModel(book);
     }
 
-    public Author findAuthor(Long authorId) throws IdNotFoundException {
+    public AuthorEntity findAuthor(Long authorId) throws IdNotFoundException {
         return authorRepository.findById(authorId)
                 .orElseThrow(()->new IdNotFoundException("",authorId));
     }
 
-    public Publisher findPublisher(Long publisherId) throws IdNotFoundException {
+    public PublisherEntity findPublisher(Long publisherId) throws IdNotFoundException {
         return publisherRepository.findById(publisherId)
                 .orElseThrow(()->new IdNotFoundException("",publisherId));
     }

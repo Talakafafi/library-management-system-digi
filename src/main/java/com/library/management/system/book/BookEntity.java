@@ -24,11 +24,11 @@ public class BookEntity {
 
     @ManyToOne
     @JoinColumn(name="ref_author_id")
-    private Author author;
+    private AuthorEntity author;
 
     @ManyToOne
     @JoinColumn(name="ref_publisher_id")
-    private Publisher publisher;
+    private PublisherEntity publisher;
 
     @Enumerated
     @Column(name = "book_category")

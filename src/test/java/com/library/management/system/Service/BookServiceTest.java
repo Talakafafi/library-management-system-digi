@@ -41,11 +41,11 @@ class BookServiceTest {
 
     @Test
     void findAuthor_authorFound() throws IdNotFoundException {
-        Author author = Author.builder().name("Eric Freeman").build();
+        AuthorEntity author = AuthorEntity.builder().name("Eric Freeman").build();
 
         when(authorRepository.findById(1L)).thenReturn(Optional.of(author));
 
-        Author result = bookService.findAuthor(1L);
+        AuthorEntity result = bookService.findAuthor(1L);
 
         assertEquals("Eric Freeman", result.getName());
     }
@@ -58,10 +58,10 @@ class BookServiceTest {
     }
 
     void findPublisher_publisherFound() throws IdNotFoundException {
-        Publisher publisher = Publisher.builder().name("publisher").build();
+        PublisherEntity publisher = PublisherEntity.builder().name("publisher").build();
         when(publisherRepository.findById(1L)).thenReturn(Optional.of(publisher));
 
-        Publisher result = bookService.findPublisher(1L);
+        PublisherEntity result = bookService.findPublisher(1L);
 
         assertEquals("publisher", result.getName());
     }
@@ -75,8 +75,8 @@ class BookServiceTest {
 
     @Test
     void addBook_withValidAuthorAndPublisherIds() throws IdNotFoundException {
-        Author author = Author.builder().build();
-        Publisher publisher =Publisher.builder().build();
+        AuthorEntity author = AuthorEntity.builder().build();
+        PublisherEntity publisher =PublisherEntity.builder().build();
         BookEntity book = BookEntity.builder()
                 .author(author)
                 .publisher(publisher)
@@ -178,9 +178,9 @@ class BookServiceTest {
     void searchBooks_byAuthorName() {
         when(bookRepository.findAll()).thenReturn(Stream.of(
                 BookEntity.builder().title("Head First Design Patterns")
-                        .author(Author.builder().name("Eric Freeman").build()).build(),
+                        .author(AuthorEntity.builder().name("Eric Freeman").build()).build(),
                 BookEntity.builder().title("Book 2")
-                        .author(Author.builder().name("Author 2").build()).build()
+                        .author(AuthorEntity.builder().name("Author 2").build()).build()
         ).toList());
 
         BookSearchDto searchDto = BookSearchDto.builder()
@@ -197,9 +197,9 @@ class BookServiceTest {
     void searchBooks_byPublisherName() {
         when(bookRepository.findAll()).thenReturn(Stream.of(
                 BookEntity.builder().title("Head First Design Patterns")
-                        .publisher(Publisher.builder().name("publisher 1").build()).build(),
+                        .publisher(PublisherEntity.builder().name("publisher 1").build()).build(),
                 BookEntity.builder().title("Book 2")
-                        .publisher(Publisher.builder().name("publisher 2").build()).build()
+                        .publisher(PublisherEntity.builder().name("publisher 2").build()).build()
         ).toList());
 
         BookSearchDto searchDto = BookSearchDto.builder()

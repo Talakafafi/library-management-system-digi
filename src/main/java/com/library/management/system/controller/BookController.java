@@ -2,10 +2,10 @@ package com.library.management.system.controller;
 
 
 import com.library.management.system.Service.BookService;
-import com.library.management.system.book.Author;
+import com.library.management.system.book.AuthorEntity;
 import com.library.management.system.book.Book;
 
-import com.library.management.system.book.Publisher;
+import com.library.management.system.book.PublisherEntity;
 import com.library.management.system.dto.BookFiltrationDto;
 import com.library.management.system.dto.BookRequestDto;
 import com.library.management.system.dto.BookSearchDto;
