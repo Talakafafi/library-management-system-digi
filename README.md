@@ -18,7 +18,7 @@ This system manages various aspects of a library, including users, books, and lo
 
 4. **Update User Information**
    - **PUT**: [http://localhost:8080/users/{id}]
-   - **Description**: Updates the details of an existing user. You have to provide updated user information in the request body. 
+   - **Description**: Updates the details of an existing user. You have to insert updated user information in the request body. 
 
 5. **Delete a User**
    - **DELETE**: [http://localhost:8080/users/{id}]
